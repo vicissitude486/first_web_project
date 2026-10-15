@@ -1,0 +1,11 @@
+
+body {background-color: #FFF0F5;}
+h1 {font-family: "NSimSun", "新宋体", serif;
+    color: red;
+    text-align: center;}
+h2 {font-family: "KaiTi", "楷体", serif;color: aqua;}
+p {font-family: "KaiTi", "楷体", serif;
+    color: black;
+    line-height: 0.1;}
+
+.cloud-link {color: white;}
