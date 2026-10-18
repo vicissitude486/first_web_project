@@ -100,20 +100,3 @@ a:hover {
 }
 
 
-@media (max-width: 600px) {
-    body {
-        margin: 64px 0 0;     
-        padding: 20px;
-        border-radius: 0;
-    }
-    .nav {
-        gap: 14px;             
-    }
-    .nav a {
-        font-size: 16px;
-        padding: 4px 4px;
-    }
-    img {
-        width: 100%;
-    }
-}
