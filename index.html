@@ -3,45 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="叶馨宇的个人主页 —— 上海外国语大学 数据科学与大数据专业">
     <title>叶馨宇的个人主页</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body class="is-locked">
 
-    <nav class="nav">
-        <a href="#about">个人简介</a>
-        <a href="#hobby">兴趣爱好</a>
-        <a href="#study">学习方向</a>
-        <a href="#github">GitHub</a>
-    </nav>
+    <!-- 背景音乐：点 Enter 进入主页后淡入播放，右上角音符按钮可随时关闭
+         loop = 循环播放；preload = 提前缓冲，避免点 Enter 后等待 -->
+    <audio id="bgm" src="bgm.mp3" loop preload="auto"></audio>
 
-    <h1>欢迎来到叶馨宇的个人主页</h1>
-    <hr>
+    <!-- 音乐没能响起来时的提示条：点一下就能开始播放，
+         同时把"卡在哪一步"（被浏览器拦了 / 文件加载不到）直接写在脸上 -->
+    <div class="music-tip" id="musicTip" hidden>
+        <span id="musicTipText">背景音乐没有自动播放，点这里开始</span>
+        <button class="music-tip-btn" id="musicTipBtn" type="button">播放</button>
+    </div>
 
-    <h2 id="about">个人简介</h2>
-    <p>专业：数据科学与大数据专业（认知科学大数据）</p>
-    <p>年级：26级</p>
-    <p>学校：上海外国语大学</p>
-    <p>邮箱：3751308612@qq.com</p>
-    <hr>
+    <!-- ============================================================
+         第一部分：封面页（背景 足迹pv.jpg，头像 派蒙流口水.jpg）
+         ============================================================ -->
+    <section class="cover" id="cover">
+        <div class="cover-bg"></div>
+        <div class="cover-veil"></div>
 
-    <h2 id="hobby">兴趣爱好</h2>
-    <p>科幻小说</p>
-    <p>打乒乓球</p>
-    <p>看动漫</p>
-    <p>打游戏（原神，王者荣耀等）</p>
-    <img src="原神六周年.jpg" width="30%">
-    <a href="https://ys.mihoyo.com/cloud/#/" target="_blank" style="color: white;">哎？云朵！</a>
-    <hr>
+        <div class="cover-card">
+            <div class="avatar-wrap">
+                <img class="avatar" src="派蒙流口水.jpg" alt="叶馨宇的头像">
+            </div>
 
-    <h2 id="study">学习方向</h2>
-    <p>目前正在学习HTML、CSS和python 目标是“技术宅拯救世界!”</p>
-    <img src="re0第三季.jpg" width="30%">
-    <hr>
+            <p class="cover-kicker">旅 人 笔 记</p>
+            <h1 class="cover-name">叶馨宇</h1>
+            <p class="cover-sub">上海外国语大学 · 数据科学与大数据专业 · 26 级</p>
 
-    <h2 id="github">GitHub</h2>
-    <p>我的GitHub主页：</p>
-    <a href="https://github.com/vicissitude486/first_web_project" target="_blank">点击跳转到我的GitHub</a>
+            <div class="cover-rule"></div>
 
+            <p class="cover-welcome">
+                你好呀，来到此地的旅者。<br>
+                欢迎走进我的小天地。
+            </p>
+
+            <button class="enter-btn" id="enterBtn" type="button">Enter</button>
+            <p class="cover-hint">点击 Enter，开始探索</p>
+        </div>
+
+        <p class="cover-foot">© 2026 叶馨宇</p>
+    </section>
+
+
+    <!-- ============================================================
+         第二部分：主页正文（背景 月荡海.jpg）
+         ============================================================ -->
+    <div class="site" id="top">
+        <div class="site-bg"></div>
+        <div class="site-veil"></div>
+
+        <!-- 左侧竖排导航（手机端自动变成底部胶囊栏） -->
+        <nav class="side-nav" id="sideNav">
+            <a class="nav-item" href="#about">简介</a>
+            <a class="nav-item" href="#hobby">爱好</a>
+            <a class="nav-item" href="#study">学习</a>
+            <a class="nav-item" href="#github">GitHub</a>
+            <span class="nav-sep"></span>
+            <button class="nav-item nav-btn" id="toCover" type="button">封面</button>
+        </nav>
+
+        <!-- 右上角工具：背景音乐开关 + 主题切换 -->
+        <div class="top-tools">
+            <button class="music-btn" id="musicBtn" type="button"
+                    aria-label="关闭背景音乐" title="关闭背景音乐">
+                <span class="music-icon">♪</span>
+            </button>
+            <button class="theme-btn" id="themeToggle" type="button">夜间</button>
+        </div>
+
+        <button class="back-top" id="backTop" type="button" title="回到顶部">↑</button>
+
+        <main class="site-inner">
+            <div class="content">
+
+                <!-- 开篇 -->
+                <section class="hero">
+                    <p class="hero-kicker">旅 人 笔 记</p>
+                    <h1 class="hero-title">你好呀，来到此地的旅者</h1>
+                    <p class="hero-lead">
+                        我是叶馨宇，上海外国语大学数据科学与大数据专业 26 级。<br>
+                        这里放着我的一点日常、一点兴趣，和正在学着的东西。
+                    </p>
+                </section>
+
+                <!-- 个人简介 -->
+                <section class="card" id="about">
+                    <h2>个人简介</h2>
+                    <ul class="info-list">
+                        <li>
+                            <span class="info-label">专业</span>
+                            <span class="info-value">数据科学与大数据专业</span>
+                        </li>
+                        <li>
+                            <span class="info-label">年级</span>
+                            <span class="info-value">26 级</span>
+                        </li>
+                        <li>
+                            <span class="info-label">学校</span>
+                            <span class="info-value">上海外国语大学</span>
+                        </li>
+                        <li>
+                            <span class="info-label">邮箱</span>
+                            <a class="info-value info-link" href="mailto:3751308612@qq.com">3751308612@qq.com</a>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- 兴趣爱好 -->
+                <section class="card" id="hobby">
+                    <h2>兴趣爱好</h2>
+                    <div class="row">
+                        <div class="col-text">
+                            <ul class="tag-list">
+                                <li>科幻小说</li>
+                                <li>打乒乓球</li>
+                                <li>看动漫</li>
+                                <li>打游戏（原神、王者荣耀等）</li>
+                            </ul>
+                            <p class="body-text">
+                                喜欢在科幻小说里找一个比现实更大的世界，也喜欢在球台上把脑子清空。
+                            </p>
+                        </div>
+                        <figure class="col-media">
+                            <img src="原神六周年.jpg" alt="原神六周年官方宣传插画">
+                            <figcaption>
+                                原神六周年 ·
+                                <a class="cloud-link" href="https://ys.mihoyo.com/cloud/#/" target="_blank" rel="noopener">哎？云朵！</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <!-- 学习方向 -->
+                <section class="card" id="study">
+                    <h2>学习方向</h2>
+                    <div class="row">
+                        <div class="col-text">
+                            <p class="body-text">
+                                目前正在学习 HTML、CSS 和 Python，目标是把脑子里的想法真正做成能打开的东西。
+                            </p>
+                            <p class="quote">“技术宅拯救世界！”</p>
+                        </div>
+                        <figure class="col-media">
+                            <img src="re0第三季.jpg" alt="Re:从零开始的异世界生活 第三季 宣传图">
+                            <figcaption>Re:从零开始的异世界生活 第三季</figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <!-- GitHub -->
+                <section class="card" id="github">
+                    <h2>GitHub</h2>
+                    <p class="body-text">我的代码都放在这里，欢迎来看看。</p>
+                    <a class="btn" href="https://github.com/vicissitude486/first_web_project" target="_blank" rel="noopener">前往我的 GitHub</a>
+                </section>
+
+                <footer class="footer">
+                    <p>© 2026 叶馨宇 · 上海外国语大学</p>
+                    <p><a href="mailto:3751308612@qq.com">3751308612@qq.com</a></p>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
