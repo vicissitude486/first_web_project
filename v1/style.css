@@ -1,0 +1,552 @@
+/* ==========================================================
+   叶馨宇的个人主页 —— style.css
+   Round 2：把所有颜色集中成「变量」，这样切换主题只需改一处
+
+   :root          → 亮色（默认）
+   [data-theme="dark"] → 暗色
+   ========================================================== */
+
+:root {
+    --bg: #E8F3FC;
+    --card: #ffffff;
+    --border: #f0d6e0;
+    --divider: #f2c9d6;
+    --text: #333333;
+    --text-muted: #8ba4b8;
+    --h1: #d14a6a;
+    --h2: #b03a5b;
+    --h2-bar: #ffb3c6;
+    --link: #1f6fb2;
+    --nav-bg: #ffffff;
+    --nav-border: #cfe2f3;
+    --tag-bg: #ffe4ec;
+    --tag-text: #b03a5b;
+    --info-bg: #f7fbfe;
+    --info-bar: #cfe2f3;
+    --btn-bg: #b03a5b;
+    --btn-bg-hover: #8f2d49;
+    --btn-text: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg: #12181f;
+    --card: #1b232d;
+    --border: #2c3a49;
+    --divider: #2c3a49;
+    --text: #d5dee8;
+    --text-muted: #7d90a4;
+    --h1: #f497ab;
+    --h2: #f0a0b6;
+    --h2-bar: #8a4760;
+    --link: #6cb4e8;
+    --nav-bg: #161d26;
+    --nav-border: #2c3a49;
+    --tag-bg: #38242e;
+    --tag-text: #f0a8bd;
+    --info-bg: #212b36;
+    --info-bar: #33465a;
+    --btn-bg: #c04a6b;
+    --btn-bg-hover: #d45c7d;
+    --btn-text: #ffffff;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--bg);
+    scroll-padding-top: 76px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0 20px 40px;
+    font-family: "KaiTi", "楷体", serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+
+/* ---------- 顶部导航 ---------- */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    padding: 0 26px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    z-index: 10;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-logo {
+    font-family: "NSimSun", "新宋体", serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: var(--h2);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 26px;
+    margin-left: auto;
+}
+
+.nav-links a {
+    color: var(--link);
+    text-decoration: none;
+    padding: 4px 2px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--h2);
+    border-bottom-color: var(--h2);
+}
+
+/* 主题切换按钮 + 汉堡菜单按钮的容器 */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 主题切换按钮 */
+.theme-btn {
+    padding: 3px 12px;
+    border: 1px solid var(--nav-border);
+    border-radius: 999px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--link);
+    cursor: pointer;
+}
+
+.theme-btn:hover {
+    border-color: var(--link);
+}
+
+/* 汉堡菜单按钮：桌面端不显示，手机上才出现 */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin: 0 auto;
+    background-color: var(--h2);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* 点开菜单后，三条横线变成叉 */
+.nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ---------- 主体白卡片 ---------- */
+
+.card {
+    max-width: 840px;
+    margin: 88px auto 28px;
+    padding: 40px 44px 48px;
+
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.card section {
+    margin-bottom: 36px;
+}
+
+.card section:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ---------- 欢迎区 ---------- */
+
+.hero {
+    text-align: center;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--divider);
+}
+
+h1 {
+    margin: 0 0 10px;
+    font-family: "NSimSun", "新宋体", serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: var(--h1);
+}
+
+.hero-sub {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-muted);
+}
+
+
+/* ---------- 各级标题 ---------- */
+
+h2 {
+    margin: 0 0 16px;
+    padding-left: 12px;
+    border-left: 6px solid var(--h2-bar);
+    font-family: "KaiTi", "楷体", serif;
+    font-size: 22px;
+    color: var(--h2);
+}
+
+p {
+    margin: 0 0 8px;
+    font-size: 17px;
+}
+
+.quote {
+    margin-top: 14px;
+    font-size: 18px;
+    color: var(--h2);
+}
+
+
+/* ---------- 个人简介：2×2 信息格 ---------- */
+
+.info-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.info-list li {
+    padding: 10px 16px;
+    background-color: var(--info-bg);
+    border-left: 3px solid var(--info-bar);
+    border-radius: 4px;
+    transition: background-color 0.25s ease;
+}
+
+.info-label {
+    display: block;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.info-value {
+    font-size: 16px;
+    color: var(--text);
+}
+
+.info-list a.info-value {
+    color: var(--link);
+    text-decoration: none;
+}
+
+.info-list a.info-value:hover {
+    text-decoration: underline;
+}
+
+
+/* ---------- 兴趣爱好：标签 + 图文两栏 ---------- */
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+}
+
+.tag-list li {
+    padding: 3px 15px;
+    background-color: var(--tag-bg);
+    border-radius: 999px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--tag-text);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.row {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.col-text {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.col-media {
+    flex: 0 0 290px;
+    margin: 0;
+}
+
+.col-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 6px;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+figcaption {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* V1 的 bug：这个链接原来被写成白色字，在白卡片上完全看不见。
+   现在颜色交给 CSS 变量管，亮/暗两种主题下都看得清。 */
+.cloud-link {
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--link);
+}
+
+.cloud-link:hover {
+    background-color: var(--bg);
+}
+
+
+/* ---------- GitHub 按钮 ---------- */
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 9px 24px;
+    background-color: var(--btn-bg);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--btn-text);
+    text-decoration: none;
+    transition: background-color 0.25s ease;
+}
+
+.btn:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+
+/* ---------- 回到顶部按钮 ---------- */
+
+#backTop {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(31, 111, 178, 0.15);
+
+    font-family: inherit;
+    font-size: 18px;
+    color: var(--link);
+    cursor: pointer;
+
+    /* 默认隐藏，滚动到一定距离后由 JS 加上 .show 才出现 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease, background-color 0.25s ease;
+}
+
+#backTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#backTop:hover {
+    background-color: var(--info-bg);
+}
+
+
+/* ---------- 页脚 ---------- */
+
+.footer {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 4px 44px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.footer p {
+    margin: 0 0 4px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.footer a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================================
+   Round 4：手机 / 窄窗口适配
+   小于 800px 时：导航收进汉堡菜单，图文两栏改为上下排列
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+    body {
+        padding: 0 12px 28px;
+        font-size: 17px;
+    }
+
+    /* --- 导航：显示汉堡按钮，链接变成下拉面板 --- */
+    .nav {
+        padding: 0 16px;
+        gap: 12px;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* 菜单收起来后，按钮组自己靠右 */
+    .nav-right {
+        margin-left: auto;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        gap: 0;
+        margin-left: 0;
+        padding: 6px 0;
+
+        background-color: var(--nav-bg);
+        border-bottom: 1px solid var(--nav-border);
+        box-shadow: 0 6px 14px rgba(31, 111, 178, 0.08);
+
+        display: none;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 22px;
+        border-bottom: 0;
+        line-height: 1.4;
+    }
+
+    .nav-links a.active {
+        background-color: var(--info-bg);
+    }
+
+    /* --- 主体卡片 --- */
+    .card {
+        margin: 78px auto 20px;
+        padding: 26px 22px 32px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .hero-sub {
+        font-size: 13px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    /* --- 个人简介：两列改一列 --- */
+    .info-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- 图文两栏改成上下排列 --- */
+    .row {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    /* 学习方向这块的图片在 HTML 里排在前面，
+       手机上用 column-reverse 让文字仍然先出现 */
+    #study .row {
+        flex-direction: column-reverse;
+    }
+
+    .col-media {
+        flex: none;
+        width: 100%;
+    }
+
+    .footer {
+        padding: 4px 22px 20px;
+    }
+}
+

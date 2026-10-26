@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="叶馨宇的个人主页 —— 上海外国语大学 数据科学与大数据专业">
+    <title>叶馨宇的个人主页</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <!-- 顶部导航：左侧站名 + 右侧锚点链接 + 主题/菜单按钮 -->
+    <header class="nav">
+        <a class="nav-logo" href="#top">叶馨宇</a>
+
+        <nav class="nav-links" id="navMenu">
+            <a href="#about">个人简介</a>
+            <a href="#hobby">兴趣爱好</a>
+            <a href="#study">学习方向</a>
+            <a href="#github">GitHub</a>
+        </nav>
+
+        <div class="nav-right">
+            <button class="theme-btn" id="themeToggle" type="button">夜间</button>
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="打开菜单" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="card" id="top">
+
+        <!-- 欢迎区 -->
+        <section class="hero">
+            <h1>欢迎来到叶馨宇的个人主页</h1>
+            <p class="hero-sub">上海外国语大学 · 数据科学与大数据专业（认知科学大数据）· 26级</p>
+        </section>
+
+        <!-- 个人简介 -->
+        <section id="about">
+            <h2>个人简介</h2>
+            <ul class="info-list">
+                <li>
+                    <span class="info-label">专业</span>
+                    <span class="info-value">数据科学与大数据专业</span>
+                </li>
+                <li>
+                    <span class="info-label">年级</span>
+                    <span class="info-value">26级</span>
+                </li>
+                <li>
+                    <span class="info-label">学校</span>
+                    <span class="info-value">上海外国语大学</span>
+                </li>
+                <li>
+                    <span class="info-label">邮箱</span>
+                    <a class="info-value" href="mailto:3751308612@qq.com">3751308612@qq.com</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 兴趣爱好 -->
+        <section id="hobby">
+            <h2>兴趣爱好</h2>
+            <div class="row">
+                <div class="col-text">
+                    <ul class="tag-list">
+                        <li>科幻小说</li>
+                        <li>打乒乓球</li>
+                        <li>看动漫</li>
+                        <li>打游戏（原神、王者荣耀等）</li>
+                    </ul>
+                    <p>喜欢在科幻小说里找一个比现实更大的世界，也喜欢在球台上把脑子清空。</p>
+                </div>
+                <figure class="col-media">
+                    <img src="../原神六周年.jpg" alt="原神六周年官方宣传插画">
+                    <figcaption>
+                        原神六周年 ·
+                        <a class="cloud-link" href="https://ys.mihoyo.com/cloud/#/" target="_blank" rel="noopener">哎？云朵！</a>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 学习方向 -->
+        <section id="study">
+            <h2>学习方向</h2>
+            <div class="row">
+                <figure class="col-media">
+                    <img src="../re0第三季.jpg" alt="Re:从零开始的异世界生活 第三季 宣传图">
+                    <figcaption>Re:从零开始的异世界生活 第三季</figcaption>
+                </figure>
+                <div class="col-text">
+                    <p>目前正在学习 HTML、CSS 和 Python，目标是把脑子里的想法真正做成能打开的东西。</p>
+                    <p class="quote">“技术宅拯救世界！”</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub -->
+        <section id="github">
+            <h2>GitHub</h2>
+            <p>我的代码都放在这里，欢迎来看看。</p>
+            <a class="btn" href="https://github.com/vicissitude486/first_web_project" target="_blank" rel="noopener">点击跳转到我的 GitHub</a>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 叶馨宇 · 上海外国语大学</p>
+        <p><a href="mailto:3751308612@qq.com">3751308612@qq.com</a></p>
+    </footer>
+
+    <button id="backTop" type="button" title="回到顶部">↑</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
